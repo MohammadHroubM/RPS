@@ -7,12 +7,12 @@ import java.util.Random;
 public class Game {
     private ArrayList<Choice> choices;
     private int numberOfRounds;
-    private Player[] players = new Player[2];
+    private ArrayList<Player> players;
 
     //needed to randomize user choice
     private Random random;
 
-    //initiate the game
+    //initiate the game, add all choices
     private Game() {
         choices = new ArrayList<>();
         choices.add(new Paper());
@@ -23,13 +23,11 @@ public class Game {
     /*
     start Game For two players , only number of rounds is needed
      */
-    public void startGameForTwoPlayers(int numberOfRounds,String player1Name,String player2Name) {
+    public void startGameForTwoPlayers(int numberOfRounds, String player1Name, String player2Name) {
 
         Player p1 = new Player(player1Name);
         Player p2 = new Player(player2Name);
 
-        players[0] = p1;
-        players[1] = p1;
         this.numberOfRounds = numberOfRounds;
 
         for (int i = 0; i < numberOfRounds; i++) {
@@ -55,11 +53,7 @@ public class Game {
     public int getNumberOfRounds() {
         return numberOfRounds;
     }
-
-    public Player[] getPlayers() {
-        return players;
-    }
-
+    
     //This method used when we need to randomly pick a choice ie testing
     public Choice randomizeChoice() {
         ArrayList<Choice> choices = this.choices;
