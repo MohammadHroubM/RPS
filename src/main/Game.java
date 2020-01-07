@@ -23,25 +23,35 @@ public class Game {
     /*
     start Game For two players , only number of rounds is needed
      */
-    public void startGameForTwoPlayers(int numberOfRounds, String player1Name, String player2Name) {
+    public boolean startGameForTwoPlayers(int numberOfRounds, String player1Name, String player2Name) {
 
         Player p1 = new Player(player1Name);
         Player p2 = new Player(player2Name);
 
         this.numberOfRounds = numberOfRounds;
 
-        for (int i = 0; i < numberOfRounds; i++) {
-            p1.setCurrentChoice(new Rock());
-            p2.setCurrentChoice(randomizeChoice());
+        try {
+            for (int i = 0; i < numberOfRounds; i++) {
+                p1.setCurrentChoice(new Rock());
+                p2.setCurrentChoice(randomizeChoice());
 
-            if (p1.getCurrentChoice().beats(p2.getCurrentChoice()) > 0) {
-                System.out.println(p1.getName() + " Won round " + i);
-            } else if (p1.getCurrentChoice().beats(p2.getCurrentChoice()) < 0) {
-                System.out.println(p2.getName() + " Won round " + i);
-            } else {
-                System.out.println("Round " + i + " is draw");
+                if (p1.getCurrentChoice().beats(p2.getCurrentChoice()) > 0) {
+                    System.out.println(p1.getName() + " Won round " + i);
+                } else if (p1.getCurrentChoice().beats(p2.getCurrentChoice()) < 0) {
+                    System.out.println(p2.getName() + " Won round " + i);
+                } else {
+                    System.out.println("Round " + i + " is draw");
+                }
             }
+            return true
+
+        } catch (Exception ex) {
+            ex.printStackTrace()
+            return false
+
         }
+
+        return true
 
     }
 
