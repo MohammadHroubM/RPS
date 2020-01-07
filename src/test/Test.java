@@ -1,5 +1,5 @@
 
-public class Test extends TestCase {
+public class TestPaper extends TestCase {
 
     public void testPaperBeatsRock() {
         Paper paper = new Paper();
@@ -17,7 +17,7 @@ public class Test extends TestCase {
         assertFalse(paper1.beats(paper2) < 0)
     }
 
-    public void testScissorBeatsPaper() {
+    public void testPaperLoseToScissor() {
         Scissor scissor = new Scissor();
         Paper paper = new Paper();
         assertTrue(scissor.beats(paper) >0);
