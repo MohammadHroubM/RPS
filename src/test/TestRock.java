@@ -19,7 +19,7 @@ public class TestRock extends TestCase {
 
     public void testRockBeatsScissor() {
         Scissor scissor = new Scissor();
-        Rock rock = new Paper();
+        Rock rock = new Rock();
         assertTrue(rock.beats(scissor) >0);
         assertFalse(rock.beats(scissor) <= 0);
     }
