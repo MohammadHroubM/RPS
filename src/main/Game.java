@@ -53,7 +53,7 @@ public class Game {
     public int getNumberOfRounds() {
         return numberOfRounds;
     }
-    
+
     //This method used when we need to randomly pick a choice ie testing
     public Choice randomizeChoice() {
         ArrayList<Choice> choices = this.choices;
