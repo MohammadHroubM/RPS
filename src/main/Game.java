@@ -23,10 +23,10 @@ public class Game {
     /*
     start Game For two players , only number of rounds is needed
      */
-    public void startGameForTwoPlayers(int numberOfRounds) {
+    public void startGameForTwoPlayers(int numberOfRounds,String player1Name,String player2Name) {
 
-        Player p1 = new Player("John");
-        Player p2 = new Player("Shadi");
+        Player p1 = new Player(player1Name);
+        Player p2 = new Player(player2Name);
 
         players[0] = p1;
         players[1] = p1;
