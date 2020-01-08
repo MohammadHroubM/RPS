@@ -1,28 +1,26 @@
+package test;
+
+import junit.framework.TestCase;
+import main.Choice;
 
 public class TestPaper extends TestCase {
 
     public void testPaperBeatsRock() {
-        Paper paper = new Paper();
-        Rock rock = new Rock();
-        assertTrue(paper.beats(rock) > 0);
-        assertFalse(rock.beats(paper) >= 0);
+
+        assertTrue(Choice.PAPER.compareChoices(Choice.ROCK) > 0);
+        assertFalse(Choice.ROCK.compareChoices(Choice.PAPER)>= 0);
 
     }
 
     public void testPaperTiesPaper() {
-        Paper paper1 = new Paper();
-        Paper paper2 = new Paper();
-        assertTrue(paper1.beats(paper2) == 0);
-        assertFalse(paper1.beats(paper2) > 0);
-        assertFalse(paper1.beats(paper2) < 0)
+
+        assertTrue(Choice.PAPER.compareChoices(Choice.PAPER) == 0);
+        assertFalse(Choice.PAPER.compareChoices(Choice.PAPER) != 0);
     }
 
     public void testPaperLoseToScissor() {
-        Scissor scissor = new Scissor();
-        Paper paper = new Paper();
-        assertTrue(scissor.beats(paper) >0);
-        assertFalse(paper.beats(scissor) >= 0);
+        assertTrue(Choice.SCISSORS.compareChoices(Choice.PAPER) > 0);
+        assertFalse(Choice.SCISSORS.compareChoices(Choice.PAPER) <= 0);
     }
 
-
-}A
+}

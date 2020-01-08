@@ -1,12 +1,26 @@
 package main;
+/*
+Holds the possible choices for the game
+ */
+public enum Choice {
 
-public interface Choice {
+    ROCK, PAPER, SCISSORS;
 
     /**
-     * Return 1 if  winning
-     * Return -1  if losing
-     * Return 0 when it is a tie
-     *
+     * Compares this Choice with another Choice to determine a tie, a win, or loss
      */
-    int beats(Choice opponent);
+    public int compareChoices(Choice otherMove) {
+        // Tie
+        if (this == otherMove)
+            return 0;
+        switch (this) {
+            case ROCK:
+                return (otherMove == SCISSORS ? 1 : -1);
+            case PAPER:
+                return (otherMove == ROCK ? 1 : -1);
+            case SCISSORS:
+                return (otherMove == PAPER ? 1 : -1);
+        }
+        return 0;
+    }
 }

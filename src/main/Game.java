@@ -13,11 +13,7 @@ public class Game {
     private Random random;
 
     //initiate the game, add all choices
-    private Game() {
-        choices = new ArrayList<>();
-        choices.add(new Paper());
-        choices.add(new Rock());
-        choices.add(new Scissors());
+    public Game() {
     }
 
     /*
@@ -32,30 +28,27 @@ public class Game {
 
         try {
             for (int i = 0; i < numberOfRounds; i++) {
-                p1.setCurrentChoice(new Rock());
+                p1.setCurrentChoice(Choice.ROCK);
                 p2.setCurrentChoice(randomizeChoice());
 
-                if (p1.getCurrentChoice().beats(p2.getCurrentChoice()) > 0) {
+                if (p1.getCurrentChoice().compareChoices(p2.getCurrentChoice()) > 0) {
                     System.out.println(p1.getName() + " Won round " + i);
-                } else if (p1.getCurrentChoice().beats(p2.getCurrentChoice()) < 0) {
+                } else if (p1.getCurrentChoice().compareChoices(p2.getCurrentChoice()) < 0) {
                     System.out.println(p2.getName() + " Won round " + i);
                 } else {
                     System.out.println("Round " + i + " is draw");
                 }
             }
-            return true
 
-        } catch (Exception ex) {
-            ex.printStackTrace()
-            return false
-
+            return true;
         }
-
-        return true
-
+        catch (Exception exception) {
+            exception.printStackTrace();
+            return false;
+        }
     }
 
-    //ToDo -- implement the game for any number of players
+        //ToDo -- implement the game for any number of players
     public void startGame(ArrayList<Player> players, int numberOfRounds) {
         //ToDo -- implement the game for any number of players
     }
@@ -66,7 +59,8 @@ public class Game {
 
     //This method used when we need to randomly pick a choice ie testing
     public Choice randomizeChoice() {
-        ArrayList<Choice> choices = this.choices;
-        return choices.get(random.nextInt(choices.size()));
+        Choice[] choices = Choice.values();
+        int index = random.nextInt(choices.length);
+        return choices[index];
     }
 }

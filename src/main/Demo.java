@@ -1,8 +1,5 @@
+package main;
 class Demo {
-    static                  //static block
-    {
-        System.out.println("Static block");
-    }
 
     public static void main(String args[])  //static method
     {
